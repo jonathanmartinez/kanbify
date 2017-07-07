@@ -1,28 +1,31 @@
-# MyApp
+<div align="center">
+  <img src="https://github.com/jonathanmartinez/kanbify/blob/master/src/assets/logo_v.png?raw=true" height="100" alt="Logo">
+    <br><br>
+    <p><strong>Kanbify</strong> — A task manager tool to organize your work and be super-productive.</p>
+    <a href="http://www.kanbify.com">kanbify.com</a>
+    <br><br>
+    <img src="https://github.com/jonathanmartinez/kanbify/blob/master/src/assets/board.gif?raw=true" alt="Demo">
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+# Description
 
-## Development server
+Kanbify is a task manager tool to organize your work and be super-productive. It has been inspired by Kanban Methodology of Toyota.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Tech Stack
 
-## Code scaffolding
+* [Angular](https://angular.io/) & [Angular CLI](https://cli.angular.io/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [ES6 Syntax](http://es6-features.org) (classes, promises, arrow functions, closures, let/const, string interpolation, etc...)
+* [Twitter Bootstrap 4](https://v4-alpha.getbootstrap.com/)
+* [SASS](http://sass-lang.com/)
+* [NGDragula](http://valor-software.com/ng2-dragula/)
+* [Ionicons](http://ionicons.com/)
+* [Webpack](https://webpack.github.io/)
+* [Babel](https://babeljs.io/)
+* [Nginx](https://www.nginx.com/)
+* [Digital Ocean](https://www.digitalocean.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+# Improvements
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Unit testing.
+* Server-side.

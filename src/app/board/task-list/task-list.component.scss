@@ -1,0 +1,91 @@
+$blue: rgb(100,148,237);
+$green: rgb(115,201,144);
+$red: rgb(212,103,112);
+$purple: rgb(196,119,219);
+$aqua: rgb(86,182,194);
+$orange: rgb(209,154,102);
+
+$dark0: rgb(24,29,35);
+$dark1: rgb(33,38,44);
+$dark2: rgb(42,46,55);
+$dark3: rgb(46,53,61);
+$dark4: rgb(55,62,72);
+$dark5: rgb(67,76,89);
+$dark6: rgb(74,82,95);
+
+$kanPurple: #8e54e9;
+$kanBlue: #4776e6;
+
+body, input, textarea, .dropdown-item{
+  font-weight: 300 !important;
+}
+
+body, input, textarea{
+  font-family: 'Montserrat' !important;
+}
+
+.col-name{
+  background-color: $dark3;
+  padding: 10px 20px;
+  h6{
+    margin-bottom: 0px;
+  }
+}
+
+.task-list-title{
+  padding: 12px 20px;
+}
+
+.task{
+  margin-top: 10px;
+}
+
+.card{
+  color: white;
+  border: 1px solid $dark0;
+  background-color: $dark0;
+}
+
+.card-footer{
+  background-color: $dark4;
+}
+
+.card-block{
+  background-color: $dark5;
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.card-footer{
+  border-top: 1px solid $dark0;
+  color: white;
+  padding: .50rem 1.25rem;
+}
+
+.add-task{
+  color: $green;
+}
+
+.icon{
+  font-size: 18px;
+}
+
+.circle {
+    height:16px;
+    border-radius:50%;
+    width:16px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.circle-selected{
+  border:2px solid white;
+}
+
+.circle-div{
+  padding-right: 4px;
+  display: inline-block;
+}
+
+.ion-trash-a{
+  color: $red;
+}

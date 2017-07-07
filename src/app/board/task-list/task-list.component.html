@@ -1,0 +1,86 @@
+<section class="row col-name align-items-center">
+  <div class="col-6">
+    <h6>{{title}}</h6>
+  </div>
+  <div
+    [class.task-list-title]="state != 'todo'"
+    class="col-6 add-task pointer text-right"
+    (click)="addTask()">
+    <b
+      [hidden]="state != 'todo'"
+      placement="bottom"
+      data-container="body"
+      ngbTooltip="(Ctrl + N)">
+      <i class="fa fa-plus right-10"></i> Add task
+    </b>
+  </div>
+</section>
+<section [id]="state" style="min-height:100%;" [dragula]='"first-bag"' [dragulaModel]='tasks'>
+  <article
+    class="row"
+    *ngFor="let task of tasks | searchFilter:shared.search | stateFilter:state | datefilter: shared.todoAt | datefilter: shared.doingAt | datefilter: shared.doneAt |  tagfilter: shared.selectedTag ? shared.selectedTag.id : null"
+    [attr.data-id]="task.id">
+    <div class="col-12">
+      <div class="card task move">
+        <div class="card-block">
+          <textarea autosize rows="1" name="task" placeholder="New Task" class="kan-textarea" [(ngModel)]="task.description" (ngModelChange)="sync()">{{ task.description }}</textarea>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="row align-items-center">
+            <div class="col-10">
+              <ng-template #popContent class="text-center">
+                <div
+                  class="circle-div"
+                  *ngFor="let tag of tags"
+                  (mouseover)="hoverTag = tag"
+                  (mouseout)="hoverTag = null">
+                  <span
+                    (click)="addOrDeleteTagFromTask(tag, task)"
+                    [style.background-color]="tag.color.rgb"
+                    [class.circle-selected]="containTag(tag.id, task.tags)"
+                    class="circle pointer">
+                  </span>
+                </div>
+                <br>
+                <p class="bottom-0" [hidden]="hoverTag">Click to add/delete tags to this task.</p>
+                <p class="bottom-0" [hidden]="!hoverTag">
+                  <span [hidden]="hoverTag ? containTag(hoverTag.id, task.tags) : true">Add</span>
+                  <span [hidden]="hoverTag ? !containTag(hoverTag.id, task.tags) : true">Delete</span>
+                  tag: {{hoverTag ? hoverTag.name : ''}}.
+                </p>
+              </ng-template>
+
+              <i
+                *ngFor="let tag of task.tags"
+                [style.color]="tag.color.rgb"
+                class="fa fa-circle pull-left right-10 pointer" placement="bottom" [ngbTooltip]="tag.name"
+                popoverTitle="Tags"
+                placement="bottom"
+                [ngbPopover]="popContent" container="body">
+              </i>
+
+              <span
+                *ngIf="task.tags.length == 0"
+                class="text-primary pointer add-tags"
+                placement="bottom"
+                popoverTitle="Tags"
+                placement="bottom"
+                [ngbPopover]="popContent" container="body">
+                <b><i class="fa fa-plus right-10"></i> Add tags</b>
+              </span>
+            </div>
+            <div class="col-2 text-center">
+              <i
+                (click)="deleteTask(task)"
+                class="icon ion-trash-a pointer"
+                placement="bottom"
+                data-container="body"
+                ngbTooltip="Delete Task">
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

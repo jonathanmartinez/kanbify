@@ -1,0 +1,36 @@
+$blue: rgb(100,148,237);
+$green: rgb(115,201,144);
+$red: rgb(212,103,112);
+$purple: rgb(196,119,219);
+$aqua: rgb(86,182,194);
+$orange: rgb(209,154,102);
+
+$dark0: rgb(24,29,35);
+$dark1: rgb(33,38,44);
+$dark2: rgb(42,46,55);
+$dark3: rgb(46,53,61);
+$dark4: rgb(55,62,72);
+$dark5: rgb(67,76,89);
+$dark6: rgb(74,82,95);
+
+$kanPurple: #8e54e9;
+$kanBlue: #4776e6;
+
+.tag{
+    padding: 10px 0px;
+}
+
+.add-tag{
+  color: $blue;
+  margin: 10px 20px;
+  display: inline-block;
+}
+
+.icon{
+  font-size: 18px;
+}
+
+.selected-tag{
+  background-color: $dark5;
+  transition: 0.37s;
+}

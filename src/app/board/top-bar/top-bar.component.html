@@ -1,0 +1,93 @@
+<aside class="col-2 logo-bar">
+  <a routerLink="/home"><img src="../../assets/logo.png" height="25" alt=""></a>
+</aside>
+<section class="col-10 text-right settings-bar">
+  <div class="row">
+    <div class="col-8">
+      <div ngbDropdown class="pull-right">
+        <i
+          class="icon ion-ios-gear-outline pointer settings"
+          id="settingsDropDown"
+          ngbDropdownToggle
+          placement="bottom"
+          ngbTooltip="Settings">
+        </i>
+        <div class="dropdown-menu" aria-labelledby="settingsDropDown">
+          <button class="dropdown-item pointer" (click)="downloadBackup()">
+            <i class="icon ion-ios-cloud-download-outline right-10"></i>
+            Download backup (.json)
+          </button>
+          <button class="dropdown-item pointer" (click)="clickFile()">
+            <i class="icon ion-ios-cloud-upload-outline right-10"></i>
+            Import backup (.json)
+            <input type='file' id='fileinput' hidden (change)="changeListener($event)" >
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item pointer text-danger" (click)="reset()">
+            <i class="icon ion-ios-trash-outline right-10"></i>
+            Delete all Tasks & Tags
+          </button>
+        </div>
+      </div>
+
+      <ng-template #filtersPopover class="text-center">
+        <button type="button" (click)="p.close()" class="close close-popover">&times;</button>
+        <div class="form-group row align-items-center">
+          <label class="col-4 col-form-label">To Do at</label>
+          <div class="col-6">
+            <material-datepicker dateFormat="DD-MM-YYYY" [(date)]="shared.todoAt"></material-datepicker>
+          </div>
+          <div class="col-2">
+            <i
+              class="icon ion-ios-close-outline pointer"
+              (click)="shared.todoAt = null"
+              placement="bottom"
+              ngbTooltip="Clear filter"
+              container="body">
+            </i>
+          </div>
+        </div>
+        <div class="form-group row align-items-center">
+          <label class="col-4 col-form-label">Doing at</label>
+          <div class="col-6">
+            <material-datepicker dateFormat="DD-MM-YYYY" [(date)]="shared.doingAt"></material-datepicker>
+          </div>
+          <div class="col-2">
+            <i
+              class="icon ion-ios-close-outline pointer"
+              (click)="shared.doingAt = null"
+              placement="bottom"
+              ngbTooltip="Clear filter"
+              container="body">
+            </i>
+          </div>
+        </div>
+        <div class="form-group row align-items-center">
+          <label class="col-4 col-form-label">Done at</label>
+          <div class="col-6">
+            <material-datepicker dateFormat="DD-MM-YYYY" [(date)]="shared.doneAt"></material-datepicker>
+          </div>
+          <div class="col-2">
+            <i
+              class="icon ion-ios-close-outline pointer"
+              (click)="shared.doneAt = null"
+              placement="bottom"
+              ngbTooltip="Clear filter"
+              container="body">
+            </i>
+          </div>
+        </div>
+      </ng-template>
+
+      <i
+        class="icon ion-ios-settings right-10 pointer" placement="bottom"  ngbTooltip="Filters"
+        popoverTitle="Filters"
+        placement="bottom"
+        [ngbPopover]="filtersPopover"  #p="ngbPopover" container="body">
+      </i>
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control search" placeholder="Search..." [(ngModel)]="shared.search" (keyup)="0" />
+  </div>
+</div>
+</section>

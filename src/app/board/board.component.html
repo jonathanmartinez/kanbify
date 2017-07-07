@@ -1,0 +1,56 @@
+<div class="layout-full">
+  <div class="layout-table">
+    <div class="layout-cell">
+      <div class="container kan-container" (window:keydown)="shortcut($event)">
+        <top-bar
+          [tasks]="tasks"
+          [tags]="tags"
+          [shared]="shared"
+          class="row top-bar align-items-center">
+        </top-bar>
+        <div class="row">
+          <side-bar
+            [tasks]="tasks"
+            [tags]="tags"
+            [shared]="shared"
+            class="col-2 sidebar">
+          </side-bar>
+          <div class="col-10 main">
+            <div class="row">
+              <task-list
+                title="TO DO"
+                [tasks]="tasks"
+                [tags]="tags"
+                state="todo"
+                [shared]="shared"
+                class="col-4 task-list">
+              </task-list>
+
+              <task-list
+                title="DOING"
+                [tasks]="tasks"
+                [tags]="tags"
+                state="doing"
+                [shared]="shared"
+                class="col-4 task-list">
+              </task-list>
+
+              <task-list
+                title="DONE"
+                [tasks]="tasks"
+                [tags]="tags"
+                state="done"
+                [shared]="shared"
+                class="col-4 task-list">
+              </task-list>
+            </div>
+          </div>
+        </div>
+        <bottom-bar [lastSync]="lastSync" class="row bottom-bar">
+        </bottom-bar>
+      </div>
+      <a id="downloadAnchorElem" style="display:none"></a>
+    </div>
+  </div>
+</div>
+

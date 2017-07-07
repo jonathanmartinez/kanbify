@@ -1,0 +1,38 @@
+<section [dragula]='"tags-bag"' [dragulaModel]='tags'>
+  <article class="row pointer border-bottom tag" (click)="setSelectedTag(null)" [class.selected-tag]="!shared.selectedTag">
+    <div  class="col-2">
+      <i  class="fa fa-circle right-10"></i>
+    </div>
+    <div class="col-10">
+      All
+    </div>
+  </article>
+
+  <article
+    class="row move border-bottom tag"
+    *ngFor="let tag of tags"
+    (click)="setSelectedTag(tag)"
+    [class.selected-tag]="shared.selectedTag ? tag.id == shared.selectedTag.id : false">
+    <div  class="col-2 pointer">
+      <i [style.color]="tag.color.rgb"  class="fa fa-circle right-10"></i>
+    </div>
+    <div class="col-8">
+      <textarea  autosize rows="1" class="kan-textarea" name="tag" placeholder="New tag" [(ngModel)]="tag.name" (ngModelChange)="sync()">{{tag.name}}</textarea>
+    </div>
+    <div class="col-2 pointer no-padding text-center" ngbDropdown ngbDropdownToggle (click)="$event.stopPropagation();">
+      <i class="icon ion-android-more-vertical" placement="bottom" data-container="body" ngbTooltip="Tag options"></i>
+      <div class="dropdown-menu">
+        <button class="dropdown-item pointer" (click)="deleteTag(tag)"><i class="icon ion-ios-close right-10 text-danger"></i> Delete Tag</button>
+        <button class="dropdown-item pointer" (click)="deleteTasksWithTag(tag)"><i class="icon ion-trash-a right-10 text-danger"></i> Delete Tag and Tasks</button>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section>
+  <article class="row pointer">
+    <div class="col-12 border-bottom text-center" (click)="addTag()">
+      <span class="add-tag" placement="bottom" data-container="body" ngbTooltip="(Ctrl + B)"><b><i  class="fa fa-plus right-10"></i> Add tag</b></span>
+    </div>
+  </article>
+</section>
