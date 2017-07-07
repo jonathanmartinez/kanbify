@@ -8,7 +8,7 @@ import { BoardComponent } from './board/board.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'kanban-board', component: BoardComponent }
+  { path: 'kanban-board', component: BoardComponent },
 ];
 
 @NgModule({

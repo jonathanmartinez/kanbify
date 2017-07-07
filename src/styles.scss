@@ -30,11 +30,6 @@ b, h1, h2, h3, h4, h5, h6{
   font-weight: 600;
 }
 
-.datepicker__calendar, .tooltip > .tooltip-inner, .dropdown-item{
-  font-family: 'Montserrat';
-}
-
-
 .kan-textarea{
   resize: none;
   border: 0px solid;
@@ -98,101 +93,100 @@ b, h1, h2, h3, h4, h5, h6{
 .bottom-0{
   margin-bottom:0px;
 }
-
 .popover.bs-tether-element-attached-top .popover-title::before, .popover.popover-bottom .popover-title::before {
   border-bottom: 1px solid $dark4;
 }
 
 .popover.bs-tether-element-attached-top::after, .popover.popover-bottom::after {
-    top: -10px;
-    margin-left: -10px;
-    border-bottom-color: $dark4;
-  }
+  top: -10px;
+  margin-left: -10px;
+  border-bottom-color: $dark4;
+}
 
-  .dropdown-toggle::after {
-      display:none
-  }
+.dropdown-toggle::after {
+    display:none
+}
 
-  .text-danger{
-    color: $red !important;
-  }
+.text-danger{
+  color: $red !important;
+}
 
-  .dropdown-menu{
-    background-color: $dark4;
-    border-color: $dark0;
+.dropdown-menu{
+  background-color: $dark4;
+  border-color: $dark0;
 
-  }
+}
 
-  .dropdown-item{
-    color:white;
-  }
+.dropdown-item{
+  color:white;
+}
 
-  .dropdown-item{
-    &:focus, &:hover {
-      background-color: $dark6;
-      color: white;
-    }
-  }
-
-  .dropdown-divider {
-    background-color: $dark0;
-  }
-
-  .tooltip.bs-tether-element-attached-top .tooltip-inner::before, .tooltip.tooltip-bottom .tooltip-inner::before {
-      border-bottom-color: $blue;
-  }
-
-  .text-primary{
-    color: $blue !important;
-  }
-
-  .no-padding{
-    padding: 0px;
-  }
-
-  .bottom-bar{
-      padding: 6px 0px;
-      font-size: 12px;
-  }
-
-  .close-popover{
-    margin-top: -38px;
-    text-shadow: none;
+.dropdown-item{
+  &:focus, &:hover {
+    background-color: $dark6;
     color: white;
   }
+}
 
-  .datepicker input{
-    width: 100%;
-    border-radius: 4px !important;
-    padding: .5rem .75rem !important;
-    background-color: $dark4 !important;
-    border: 1px solid $dark0 !important;
-    color:white !important;
-  }
+.dropdown-divider {
+  background-color: $dark0;
+}
 
-  .datepicker__calendar, .datepicker__calendar__month__day{
-    background-color: $dark6 !important;
-  }
+.tooltip.bs-tether-element-attached-top .tooltip-inner::before, .tooltip.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: $blue;
+}
 
-  .datepicker__calendar{
-    border-radius: 4px;
-    border: 1px solid $dark0 !important;
-  }
+.text-primary{
+  color: $blue !important;
+}
 
-  .datepicker__calendar__nav{
-    background-color: $dark4 !important;
-    color: white !important;
-    border-bottom: 1px solid $dark0 !important;
-  }
+.no-padding{
+  padding: 0px;
+}
 
-  .datepicker__calendar__month__day{
-    color: white !important;
-  }
+.bottom-bar{
+    padding: 6px 0px;
+    font-size: 12px;
+}
 
- .dropdown-item{
-    font-weight: 300 !important;
-  }
+.close-popover{
+  margin-top: -38px;
+  text-shadow: none;
+  color: white;
+}
 
-  .circle-selected{
-    border:2px solid white;
-  }
+.datepicker input{
+  width: 100%;
+  border-radius: 4px !important;
+  padding: .5rem .75rem !important;
+  background-color: $dark4 !important;
+  border: 1px solid $dark0 !important;
+  color:white !important;
+}
+
+.datepicker__calendar, .datepicker__calendar__month__day{
+  background-color: $dark6 !important;
+}
+
+.datepicker__calendar{
+  border-radius: 4px;
+  border: 1px solid $dark0 !important;
+}
+
+.datepicker__calendar__nav{
+  background-color: $dark4 !important;
+  color: white !important;
+  border-bottom: 1px solid $dark0 !important;
+}
+
+.datepicker__calendar__month__day{
+  color: white !important;
+}
+
+.dropdown-item{
+  font-weight: 300 !important;
+}
+
+.circle-selected{
+  border:2px solid white;
+}

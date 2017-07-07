@@ -13,7 +13,10 @@ import { Mocks } from '../shared/mocks';
 })
 
 export class BoardComponent{
-  lastSync: Date = new Date();
+  //check if exist in localStorage
+  tasks = this.myGetItem('tasks') || Mocks.TASKS;
+  tags = this.myGetItem('tags') || Mocks.TAGS;
+  colors = Mocks.COLORS;
 
   //this object will be available on the child components
   shared = {
@@ -24,11 +27,7 @@ export class BoardComponent{
     selectedTag: null,
   };
 
-  //check if exist in localStorage
-  tasks = this.myGetItem('tasks') || Mocks.TASKS;
-  tags = this.myGetItem('tags') || Mocks.TAGS;
-  colors = Mocks.COLORS;
-  tit = "pepe";
+  lastSync: Date = new Date();
 
   constructor(private dragulaService: DragulaService) {
     dragulaService.drop.subscribe((value) => {
@@ -53,6 +52,7 @@ export class BoardComponent{
     this.tasks.unshift(t);
     this.sync();
 
+    //focus new task
     setTimeout(function() {
       window.document.getElementsByName("task")[0].focus();
     }, 100);
