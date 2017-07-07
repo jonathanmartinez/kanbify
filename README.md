@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/jonathanmartinez/kanbify/blob/master/src/assets/logo_v.png?raw=true" height="400" alt="Logo">
+  <img src="https://github.com/jonathanmartinez/kanbify/blob/master/src/assets/logo_v.png?raw=true" height="200" alt="Logo">
     <br><br>
     <p><strong>Kanbify</strong> — A task manager tool to organize your work and be super-productive.</p>
     <a href="http://www.kanbify.com">kanbify.com</a>
