@@ -15,13 +15,13 @@ import { Mocks } from '../shared/mocks';
 export class BoardComponent{
   lastSync: Date = new Date();
 
-
+  //this object will be available on the child components
   shared = {
     todoAt: null,
     doingAt: null,
     doneAt: null,
     search: null,
-    selectedTag: undefined,
+    selectedTag: null,
   };
 
   //check if exist in localStorage
@@ -81,6 +81,7 @@ export class BoardComponent{
     this.sync();
   }
 
+  //Change task state if drops on a different state (to do, doing, done)
   private onDrop(args) {
     let [e, el] = args;
     this.tasks.forEach(function (task, i) {
@@ -112,120 +113,118 @@ export class BoardComponent{
   addTag(): void {
     let ids = this.tags.map(c => c.id);
     let nextColorAvailable;
+    //set next available color to the new tag
     this.colors.forEach(function(color, i){
+      if(this.tags.map(c => c.id).includes(color.id)){
+        if(i+1<this.colors.length){
+          nextColorAvailable = this.colors[i+1];
+        }
+        else{
+          nextColorAvailable = this.colors[i];
+        }
+        return false;
+      }
+    }, this)
 
-  if(this.tags.map(c => c.id).includes(color.id)){
-    if(i+1<this.colors.length){
-      nextColorAvailable = this.colors[i+1];
+    this.tags.push({
+      id: ids.length > 0 ? Math.max(...ids)+1 : 1,//next id available
+      name: '',
+      color: nextColorAvailable,
+    });
+    this.sync();
+
+    //focus new tag
+    setTimeout(function() {
+      var element = window.document.getElementsByName("tag")
+      element[element.length-1].focus();
+    }, 100);
+  }
+
+  myGetItem(key: string){
+    var result = JSON.parse(localStorage.getItem(key));
+
+    switch(key){
+      case 'tasks':
+      if(result){
+        result.forEach(function(task, i){
+          task.todoDate = new Date(task.todoDate);
+        })
+      }
+      break;
+      default:
+      break;
+    }
+    return result;
+  }
+
+  mySetItem(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  shortcut(event){
+    if (event.ctrlKey && event.keyCode == 78) {
+      this.addTask();
+    }
+    if (event.ctrlKey && event.keyCode == 66) {
+      this.addTag();
+    }
+  }
+
+  deleteTasksWithTag(tag: Tag): void {
+    var self = this;
+    var tasksCopy = this.tasks
+    //use a copy of tasks to iterate and delete inside the loop
+    tasksCopy.forEach(function(task, i){
+      console.log(self.tasks);
+      task.tags.forEach(function(cat, i){
+        if(cat.id == tag.id){
+          self.tasks.splice(self.tasks.indexOf(task), 1);
+        }
+      })
+    })
+
+    this.tags.splice(this.tags.indexOf(tag), 1);
+    this.sync();
+  }
+
+  countTasks(tag: Tag){
+    return this.tasks.filter( t => t.tags.filter(c => tag.id == c.id) ).length;
+  }
+
+  addTagToTask(task: Task, tag: Tag): void {
+    task.tags.push(tag);
+    this.sync();
+  }
+
+  addOrDeleteTagFromTask(tag: Tag, task: Task){
+    if(task.tags.map(c => c.id).includes(tag.id)){
+      this.deleteTagFromTask(task, tag);
     }
     else{
-      nextColorAvailable = this.colors[i];
+      this.addTagToTask(task, tag);
     }
-    return false;
   }
-}, this)
 
-this.tags.push({
-  id: ids.length > 0 ? Math.max(...ids)+1 : 1,//next id available
-  name: '',
-  color: nextColorAvailable,
-});
-this.sync();
+  deleteTagFromTask(task: Task, tag: Tag): void {
+    task.tags.splice(task.tags.indexOf(tag), 1);
+    this.sync();
+  }
 
-setTimeout(function() {
-  var element = window.document.getElementsByName("tag")
-  element[element.length-1].focus();
-}, 100);
-}
+  readThis(inputValue: any) : void {
+    var file:File = inputValue.files[0];
+    var myReader:any = new FileReader();
+    var self = this;
 
-myGetItem(key: string){
-  var result = JSON.parse(localStorage.getItem(key));
-
-  switch(key){
-    case 'tasks':
-    if(result){
-      result.forEach(function(task, i){
-        task.todoDate = new Date(task.todoDate);
-      })
+    myReader.onloadend = function(e){
+      self.tasks = JSON.parse(myReader.result).tasks;
+      self.tags = JSON.parse(myReader.result).tags;
     }
-    break;
-    default:
-    break;
-  }
-  return result;
-}
 
-mySetItem(key: string, value: any): void {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
-
-
-shortcut(event){
-  if (event.ctrlKey && event.keyCode == 78) {
-    this.addTask();
-  }
-  if (event.ctrlKey && event.keyCode == 66) {
-    this.addTag();
-  }
-}
-
-deleteTasksWithTag(tag: Tag): void {
-  var self = this;
-  var tasksCopy = this.tasks
-  //use a copy of tasks to iterate and delete inside the loop
-  tasksCopy.forEach(function(task, i){
-    console.log(self.tasks);
-    task.tags.forEach(function(cat, i){
-      if(cat.id == tag.id){
-        self.tasks.splice(self.tasks.indexOf(task), 1);
-      }
-    })
-  })
-
-
-  this.tags.splice(this.tags.indexOf(tag), 1);
-  this.sync();
-}
-
-countTasks(tag: Tag){
-  return this.tasks.filter( t => t.tags.filter(c => tag.id == c.id) ).length;
-}
-
-addTagToTask(task: Task, tag: Tag): void {
-  task.tags.push(tag);
-  this.sync();
-}
-
-addOrDeleteTagFromTask(tag: Tag, task: Task){
-if(task.tags.map(c => c.id).includes(tag.id)){
-  this.deleteTagFromTask(task, tag);
-}
-else{
-  this.addTagToTask(task, tag);
-}
-}
-
-deleteTagFromTask(task: Task, tag: Tag): void {
-  task.tags.splice(task.tags.indexOf(tag), 1);
-  this.sync();
-}
-
-readThis(inputValue: any) : void {
-  var file:File = inputValue.files[0];
-  var myReader:any = new FileReader();
-  var self = this;
-
-  myReader.onloadend = function(e){
-    self.tasks = JSON.parse(myReader.result).tasks;
-    self.tags = JSON.parse(myReader.result).tags;
+    myReader.readAsText(file);
   }
 
-  myReader.readAsText(file);
-}
-
-containTag(tagId: number, tags: Tag[]){
-  return tags.map(c => c.id).includes(tagId);
-}
+  containTag(tagId: number, tags: Tag[]){
+    return tags.map(c => c.id).includes(tagId);
+  }
 
 }

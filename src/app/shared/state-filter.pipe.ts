@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 
+//Filter tasks based on their state(to do, doing, done).
 export class StateFilterPipe implements PipeTransform {
     transform(items: any[], filter: string): any {
         if (!items || !filter) {

@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 
+//Filter tasks in the board by date.
 export class DateFilterPipe implements PipeTransform {
     transform(items: any[], filter: Date): any {
         if (!items || !filter) {

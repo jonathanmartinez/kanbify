@@ -4,6 +4,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'searchFilter'
 })
 
+//Search tasks in the board by user's input.
 export class SearchFilterPipe implements PipeTransform {
   transform(value: any, args: string): any {
     let filter = args ? args.toLocaleLowerCase() : '' ;

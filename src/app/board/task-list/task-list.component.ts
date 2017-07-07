@@ -16,7 +16,7 @@ export class TaskListComponent{
   @Input() selectedTag;
   @Input() state;
   @Input() shared;
-  @Input() title;
+  @Input() theTitle;
 
   hoverTag: any = null;
 
