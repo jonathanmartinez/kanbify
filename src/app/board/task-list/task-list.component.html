@@ -15,7 +15,7 @@
     </b>
   </div>
 </section>
-<section [id]="state" style="min-height:100%;" [dragula]='"first-bag"' [dragulaModel]='tasks'>
+<section [id]="state" style="min-height:70vh !important;" [dragula]='"first-bag"' [dragulaModel]='tasks'>
   <article
     class="row"
     *ngFor="let task of tasks | searchFilter:shared.search | stateFilter:state | datefilter: shared.todoAt | datefilter: shared.doingAt | datefilter: shared.doneAt |  tagfilter: shared.selectedTag ? shared.selectedTag.id : null"
@@ -60,7 +60,7 @@
               </i>
 
               <span
-                *ngIf="task.tags.length == 0"
+                *ngIf="task.tags && task.tags.length == 0"
                 class="text-primary pointer add-tags"
                 placement="bottom"
                 popoverTitle="Tags"
