@@ -40,6 +40,10 @@ body, input, textarea{
   margin-top: 10px;
 }
 
+.task-container:last-child .task{
+  margin-bottom: 10px;
+}
+
 .card{
   color: white;
   border: 1px solid $dark0;
