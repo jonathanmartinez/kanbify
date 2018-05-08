@@ -17,7 +17,7 @@ $kanPurple: #8e54e9;
 $kanBlue: #4776e6;
 
 body, input, textarea, .dropdown-item{
-  font-weight: 300 !important;
+  font-weight: 400 !important;
 }
 
 body, input, textarea{
@@ -57,12 +57,17 @@ body, input, textarea{
 .card-block{
   background-color: $dark5;
   border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+  padding: 0.50rem 1.25rem;
 }
 
 .card-footer{
   border-top: 1px solid $dark0;
   color: white;
-  padding: .50rem 1.25rem;
+  padding: .15rem 1.25rem;
+}
+
+.add-tags{
+  font-size: 1em;
 }
 
 .add-task{

@@ -6,14 +6,14 @@ import { SearchFilterPipe } from './shared/search-filter.pipe';
 import { OrderModule } from 'ngx-order-pipe';
 import { StateFilterPipe } from './shared/state-filter.pipe';
 import { DateFilterPipe } from './shared/date-filter.pipe';
-import { Autosize } from 'angular2-autosize/src/autosize.directive';
+import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 import { FormsModule }   from '@angular/forms';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagFilterPipe } from './shared/tag-filter.pipe';
-import { TagInputModule } from 'ng2-tag-input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
+import { TooltipDirective } from 'ng2-tooltip-directive/components';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,10 +25,10 @@ import { SideBarComponent } from './board/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, BoardComponent, TaskListComponent, BottomBarComponent, TopBarComponent, SideBarComponent, SearchFilterPipe, StateFilterPipe, Autosize, DateFilterPipe, TagFilterPipe
+    AppComponent, HomeComponent, BoardComponent, TaskListComponent, BottomBarComponent, TopBarComponent, SideBarComponent, SearchFilterPipe, StateFilterPipe, DateFilterPipe, TagFilterPipe, TooltipDirective
   ],
   imports: [
-    AppRoutingModule, BrowserModule, DragulaModule, OrderModule, FormsModule, DatepickerModule, BrowserAnimationsModule, TagInputModule, NgbModule.forRoot(), RouterModule
+    AppRoutingModule, BrowserModule, DragulaModule, OrderModule, FormsModule, DatepickerModule, BrowserAnimationsModule, TextareaAutosizeModule, NgbModule.forRoot(), RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

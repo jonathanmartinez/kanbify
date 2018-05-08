@@ -18,12 +18,12 @@ $kanBlue: #4776e6;
 
 body{
   font-family: 'Montserrat';
-  font-weight: 300;
+  font-weight: 400;
 }
 
 input, textarea, .popover, .popover input{
   font-family: 'Montserrat';
-  font-weight: 300;
+  font-weight: 400;
 }
 
 b, h1, h2, h3, h4, h5, h6{
@@ -33,6 +33,7 @@ b, h1, h2, h3, h4, h5, h6{
 .kan-textarea{
   resize: none;
   border: 0px solid;
+  vertical-align: top;
   background-color: transparent;
   color: white;
   width: 100% !important;
@@ -42,8 +43,12 @@ b, h1, h2, h3, h4, h5, h6{
   }
 }
 
+.kan-textarea::placeholder {
+    color: lightgray;
+}
+
 .border-bottom{
-  border-bottom: 1px solid rgb(24,26,31);
+  border-bottom: 1px solid rgb(24,26,31) !important;
 }
 
 .right-10{
@@ -66,17 +71,16 @@ b, h1, h2, h3, h4, h5, h6{
   cursor: move;
 }
 
-.tooltip > .tooltip-inner {
-  background-color: $blue !important;
-}
 
-.popover-title{
+
+.popover-header{
   background-color: $dark4;
   border-bottom: 1px solid $dark0;
 }
 
-.popover-content{
+.popover-body{
   background-color: $dark5;
+  color: white !important;
 
 }
 .popover{
@@ -93,15 +97,9 @@ b, h1, h2, h3, h4, h5, h6{
 .bottom-0{
   margin-bottom:0px;
 }
-.popover.bs-tether-element-attached-top .popover-title::before, .popover.popover-bottom .popover-title::before {
-  border-bottom: 1px solid $dark4;
-}
 
-.popover.bs-tether-element-attached-top::after, .popover.popover-bottom::after {
-  top: -10px;
-  margin-left: -10px;
-  border-bottom-color: $dark4;
-}
+
+
 
 .dropdown-toggle::after {
     display:none
@@ -129,12 +127,19 @@ b, h1, h2, h3, h4, h5, h6{
 }
 
 .dropdown-divider {
-  background-color: $dark0;
+  border-top: 1px solid $dark0;
 }
 
-.tooltip.bs-tether-element-attached-top .tooltip-inner::before, .tooltip.tooltip-bottom .tooltip-inner::before {
-    border-bottom-color: $blue;
+
+
+.tooltip.bs-tooltip-bottom .tooltip-inner {
+    background:$blue !important;
 }
+
+.tooltip .arrow:before {
+ border-bottom-color:$blue !important;
+ border-top-color:$blue !important;
+ }
 
 .text-primary{
   color: $blue !important;
@@ -184,9 +189,17 @@ b, h1, h2, h3, h4, h5, h6{
 }
 
 .dropdown-item{
-  font-weight: 300 !important;
+  font-weight: 400 !important;
 }
 
 .circle-selected{
   border:2px solid white;
+}
+
+
+.bs-popover-auto[x-placement^=bottom] .popover-header::before, .bs-popover-bottom .popover-header::before{
+  display: none !important;
+}
+.bs-popover-auto[x-placement^=bottom] .arrow::after, .bs-popover-bottom .arrow::after{
+  border-bottom-color: $dark4;
 }

@@ -37,7 +37,7 @@ p{
 
 .btn-kan{
   border-radius: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .btn-kan-blue{
@@ -68,6 +68,10 @@ button {
 
 a, a:hover{
   color: white;
+}
+
+.a-blue, .a-blue:hover{
+  color: #007bff;
 }
 
 .credit{
@@ -102,4 +106,16 @@ header .styled-img{
 
 .bg-grey{
   background-color: #ededed;
+}
+
+.feature-description{
+  margin-bottom: 40px;
+}
+
+.card-div{
+  margin-top: 20px;
+}
+
+.card{
+  min-height: 200px;
 }

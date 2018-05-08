@@ -15,6 +15,10 @@
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "../node_modules/angular2-material-datepicker",
+    "main.ts",
+    "polyfills.ts",
+    "../node_modules/ngx-textarea-autosize"
   ]
 }

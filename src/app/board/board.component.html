@@ -2,6 +2,8 @@
   <div class="layout-table">
     <div class="layout-cell">
       <div class="container kan-container" (window:keydown)="shortcut($event)">
+        <div class="row">
+          <div class="col-12">
         <top-bar
           [tasks]="tasks"
           [tags]="tags"
@@ -49,8 +51,9 @@
         <bottom-bar [lastSync]="lastSync" class="row bottom-bar">
         </bottom-bar>
       </div>
+    </div>
+  </div>
       <a id="downloadAnchorElem" style="display:none"></a>
     </div>
   </div>
 </div>
-

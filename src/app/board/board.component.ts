@@ -20,9 +20,12 @@ export class BoardComponent{
 
   //this object will be available on the child components
   shared = {
-    todoAt: null,
-    doingAt: null,
-    doneAt: null,
+    todoFrom: null,
+    todoTo: null,
+    doingFrom: null,
+    doingTo: null,
+    doneFrom: null,
+    doneTo: null,
     search: null,
     selectedTag: null,
   };

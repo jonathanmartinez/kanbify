@@ -6,6 +6,12 @@
     "baseUrl": "",
     "types": []
   },
+  "include": [
+    "../node_modules/angular2-material-datepicker",
+    "main.ts",
+    "polyfills.ts",
+    "../node_modules/ngx-textarea-autosize"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

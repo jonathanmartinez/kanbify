@@ -4,13 +4,14 @@
   </div>
   <div
     [class.task-list-title]="state != 'todo'"
-    class="col-6 add-task pointer text-right"
-    (click)="addTask()">
+    class="col-6 add-task  text-right">
     <b
+      (click)="addTask()"
       [hidden]="state != 'todo'"
       placement="bottom"
       data-container="body"
-      ngbTooltip="(Ctrl + N)">
+      ngbTooltip="(Ctrl + N)"
+      class="pointer">
       <i class="fa fa-plus right-10"></i> Add task
     </b>
   </div>
@@ -18,7 +19,7 @@
 <section [id]="state" style="height:70vh !important;" [dragula]='"first-bag"' [dragulaModel]='tasks'>
   <article
     class="row task-container"
-    *ngFor="let task of tasks | searchFilter:shared.search | stateFilter:state | datefilter: shared.todoAt | datefilter: shared.doingAt | datefilter: shared.doneAt |  tagfilter: shared.selectedTag ? shared.selectedTag.id : null"
+    *ngFor="let task of tasks | searchFilter:shared.search | stateFilter:state | datefilter: [shared.todoFrom, shared.todoTo, shared.doingFrom, shared.doingTo, shared.doneFrom, shared.doneTo] |  tagfilter: shared.selectedTag ? shared.selectedTag.id : null"
     [attr.data-id]="task.id">
     <div class="col-12">
       <div class="card task move">
@@ -66,7 +67,12 @@
                 popoverTitle="Tags"
                 placement="bottom"
                 [ngbPopover]="popContent" container="body">
-                <b><i class="fa fa-plus right-10"></i> Add tags</b>
+                <b><i
+                    class="fa fa-plus"
+                    placement="bottom"
+                    data-container="body"
+                    ngbTooltip="Add tags">
+                  </i></b>
               </span>
             </div>
             <div class="col-2 text-center">
