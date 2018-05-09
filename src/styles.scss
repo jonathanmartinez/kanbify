@@ -43,6 +43,10 @@ b, h1, h2, h3, h4, h5, h6{
   }
 }
 
+.card .kan-textarea{
+  font-size: 14px;
+}
+
 .kan-textarea::placeholder {
     color: lightgray;
 }

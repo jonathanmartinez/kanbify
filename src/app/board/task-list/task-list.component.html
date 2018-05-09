@@ -28,7 +28,7 @@
         </div>
         <div class="card-footer text-muted">
           <div class="row align-items-center">
-            <div class="col-10">
+            <div class="col-9">
               <ng-template #popContent class="text-center">
                 <div
                   class="circle-div"
@@ -75,13 +75,24 @@
                   </i></b>
               </span>
             </div>
-            <div class="col-2 text-center">
+            <div class="col-3 text-center">
               <i
                 (click)="deleteTask(task)"
-                class="icon ion-trash-a pointer"
+                class="icon ion-trash-a pointer pull-right"
                 placement="bottom"
                 data-container="body"
                 ngbTooltip="Delete Task">
+              </i>
+              <ng-template #tipContent>
+                <p class="text-left bottom-0">TO DO at: <span class="left-10 pull-right">{{task.todoDate ? task.todoDate.toLocaleDateString() : 'Not yet'}}</span></p>
+                <p class="text-left bottom-0">DOING at: <span class="left-10 pull-right">{{task.doingDate ? task.doingDate.toLocaleDateString() : 'Not yet'}}</span></p>
+                <p class="text-left bottom-0">DONE at: <span class="left-10 pull-right">{{task.doneDate ? task.doneDate.toLocaleDateString() : 'Not yet'}}</span></p>
+              </ng-template>
+              <i
+                class="icon ion-android-calendar text-primary pointer pull-right right-10"
+                placement="bottom"
+                data-container="body"
+                [ngbTooltip]="tipContent">
               </i>
             </div>
           </div>

@@ -150,7 +150,9 @@ export class BoardComponent{
       case 'tasks':
       if(result){
         result.forEach(function(task, i){
-          task.todoDate = new Date(task.todoDate);
+          task.todoDate = task.todoDate ? new Date(task.todoDate) : null;
+          task.doingDate = task.doingDate ? new Date(task.doingDate) : null;
+          task.doneDate = task.doneDate ? new Date(task.doneDate) : null;
         })
       }
       break;
