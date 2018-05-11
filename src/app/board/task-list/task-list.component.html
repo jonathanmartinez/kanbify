@@ -84,9 +84,9 @@
                 ngbTooltip="Delete Task">
               </i>
               <ng-template #tipContent>
-                <p class="text-left bottom-0">TO DO at: <span class="left-10 pull-right">{{task.todoDate ? task.todoDate.toLocaleDateString() : 'Not yet'}}</span></p>
-                <p class="text-left bottom-0">DOING at: <span class="left-10 pull-right">{{task.doingDate ? task.doingDate.toLocaleDateString() : 'Not yet'}}</span></p>
-                <p class="text-left bottom-0">DONE at: <span class="left-10 pull-right">{{task.doneDate ? task.doneDate.toLocaleDateString() : 'Not yet'}}</span></p>
+                <p class="text-left bottom-0">TO DO at: <span class="left-10 pull-right">{{task.todoDate ? (("0" + task.todoDate.getDate()).slice(-2) + "/" + ("0"+(task.todoDate.getMonth()+1)).slice(-2) + "/" + task.todoDate.getFullYear()) : 'Not yet'}}</span></p>
+                <p class="text-left bottom-0">DOING at: <span class="left-10 pull-right">{{task.doingDate ? (("0" + task.doingDate.getDate()).slice(-2) + "/" + ("0"+(task.doingDate.getMonth()+1)).slice(-2) + "/" + task.doingDate.getFullYear()) : 'Not yet'}}</span></p>
+                <p class="text-left bottom-0">DONE at: <span class="left-10 pull-right">{{task.doneDate ? (("0" + task.doneDate.getDate()).slice(-2) + "/" + ("0"+(task.doneDate.getMonth()+1)).slice(-2) + "/" + task.doneDate.getFullYear()) : 'Not yet'}}</span></p>
               </ng-template>
               <i
                 class="icon ion-android-calendar text-primary pointer pull-right right-10"
