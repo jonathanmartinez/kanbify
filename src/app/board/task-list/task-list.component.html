@@ -16,7 +16,7 @@
     </b>
   </div>
 </section>
-<section [id]="state" style="height:70vh !important;" [dragula]='"first-bag"' [dragulaModel]='tasks'>
+<section [id]="state" [dragula]='"first-bag"' [dragulaModel]='tasks' class="h-100">
   <article
     class="row task-container"
     *ngFor="let task of tasks | searchFilter:shared.search | stateFilter:state | datefilter: [shared.todoFrom, shared.todoTo, shared.doingFrom, shared.doingTo, shared.doneFrom, shared.doneTo] |  tagfilter: shared.selectedTag ? shared.selectedTag.id : null"

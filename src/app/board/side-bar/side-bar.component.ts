@@ -1,7 +1,5 @@
-import { Component, Input, Output, EventEmitter, OnInit, Inject, forwardRef } from '@angular/core';
-import { Mocks } from '../../shared/mocks';
+import { Component, Input, Inject, forwardRef } from '@angular/core';
 import { BoardComponent } from '../board.component';
-import { Task } from '../../models/task';
 import { Tag } from '../../models/tag';
 
 @Component({

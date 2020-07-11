@@ -1,13 +1,11 @@
 $kanPurple: #8e54e9;
 $kanBlue: #4776e6;
+
+$mainBlue: #5245f9;
 @mixin media($queryString){
   @media #{$queryString} {
     @content;
   }
-}
-
-body, button{
-  font-family: 'Montserrat' !important;
 }
 
 header{
@@ -37,17 +35,19 @@ p{
 
 .btn-kan{
   border-radius: 24px;
-  font-weight: 600;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: all 0.3s ease 0s;
 }
 
 .btn-kan-blue{
-  background-color: $kanBlue;
+  background-color: $mainBlue;
   color: white;
+  box-shadow: 0px 15px 20px rgba(82, 69, 249, 0.4);
 }
 
-.btn-kan-purple{
-  background-color: $kanPurple;
-  color: white;
+.btn-kan:hover{
+transform: translateY(-7px);
 }
 
 button {
@@ -77,18 +77,13 @@ a, a:hover{
 .credit{
   font-size: 12px;
   color: darkgrey;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 footer{
   color: white;
   padding: 20px 20px;
-  background: -moz-linear-gradient(left, $kanPurple 0%, $kanBlue 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, $kanPurple), color-stop(100%, $kanBlue));
-  background: -webkit-linear-gradient(left, $kanPurple 0%, $kanBlue 100%);
-  background: -o-linear-gradient(left, $kanPurple 0%, $kanBlue 100%);
-  background: -ms-linear-gradient(left, $kanPurple 0%, $kanBlue 100%);
-  background: linear-gradient(to right, $kanPurple 0%, $kanBlue 100%);
+  background-color: $mainBlue;
   a{
     color: white;
   }

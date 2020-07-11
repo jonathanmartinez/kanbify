@@ -28,17 +28,13 @@ $kanBlue: #4776e6;
 .kan-container{
   color: white;
   background-color: $dark2;
-  border-radius: 4px;
-  width: 90%;
-  min-width: 1140px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3),0 2px 10px 0 rgba(0,0,0,0.3);
+  width: 100%;
 }
 
 .task-list{
   border-right: 1px solid rgb(24,26,31);
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
-  /*min-height: 80vh;*/
 }
 
 .top-bar{
@@ -77,3 +73,19 @@ $kanBlue: #4776e6;
   height: 100% !important;
   vertical-align: middle !important;
 }
+
+
+.parent{
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.task-list{
+  height: 100%;
+}
+
+.B{
+  flex: auto !important;
+}
+

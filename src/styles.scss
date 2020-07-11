@@ -16,18 +16,42 @@ $dark6: rgb(74,82,95);
 $kanPurple: #8e54e9;
 $kanBlue: #4776e6;
 
+$mainBlue: #5245f9;
+
+@font-face {
+  font-family: 'Kanbify-Medium' ;
+  src: url('/assets/fonts/Kanbify-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kanbify-Bold' ;
+  src: url('/assets/fonts/Kanbify-Bold.ttf') format('truetype');
+}
+
 body{
-  font-family: 'Montserrat';
-  font-weight: 400;
+  font-family: 'Kanbify-Medium';
+  font-size: 1rem;
 }
 
 input, textarea, .popover, .popover input{
-  font-family: 'Montserrat';
-  font-weight: 400;
+  font-family: 'Kanbify-Medium';
+}
+
+p {
+  font-family: 'Kanbify-Medium' !important;
 }
 
 b, h1, h2, h3, h4, h5, h6{
-  font-weight: 600;
+  font-family: 'Kanbify-Bold';
+}
+
+.logo{
+  color: white;
+  font-size: 2rem;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 .kan-textarea{
@@ -41,10 +65,6 @@ b, h1, h2, h3, h4, h5, h6{
     outline: none;
     border-bottom: 1px solid rgb(100,148,237);
   }
-}
-
-.card .kan-textarea{
-  font-size: 14px;
 }
 
 .kan-textarea::placeholder {
